@@ -1,0 +1,69 @@
+{
+  "info": {
+    "name": "EnergyDrinks Factory API",
+    "description": "Colección de pruebas para la API de pedidos de bebidas energéticas.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Pedido exitoso (inventario suficiente)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"orderId\": \"order1\",\n  \"drinkType\": \"cosmic_punch\",\n  \"quantity\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/order-drink",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["order-drink"]
+        }
+      }
+    },
+    {
+      "name": "Pedido fallido (inventario insuficiente)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"orderId\": \"order2\",\n  \"drinkType\": \"solar_blast\",\n  \"quantity\": 9999\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/order-drink",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["order-drink"]
+        }
+      }
+    },
+    {
+      "name": "Pedidos simultáneos (concurrencia)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"orderId\": \"order3\",\n  \"drinkType\": \"lunar_berry\",\n  \"quantity\": 5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/order-drink",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["order-drink"]
+        }
+      }
+    }
+  ]
+}
